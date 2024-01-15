@@ -1,0 +1,463 @@
+"0","knitr::opts_chunk$set(echo = TRUE)"
+"0","rmarkdown::html_document(df_print = knitr::kable)"
+"1","$knitr
+"
+"1","$knitr$opts_knit
+"
+"1","NULL
+"
+"1","
+"
+"1","$knitr$opts_chunk
+"
+"1","$knitr$opts_chunk$dev
+"
+"1","[1]"
+"1"," ""png"""
+"1","
+"
+"1","
+"
+"1","$knitr$opts_chunk$dpi
+"
+"1","[1]"
+"1"," 96"
+"1","
+"
+"1","
+"
+"1","$knitr$opts_chunk$fig.width
+"
+"1","[1]"
+"1"," 7"
+"1","
+"
+"1","
+"
+"1","$knitr$opts_chunk$fig.height
+"
+"1","[1]"
+"1"," 5"
+"1","
+"
+"1","
+"
+"1","$knitr$opts_chunk$fig.retina
+"
+"1","[1]"
+"1"," 2"
+"1","
+"
+"1","
+"
+"1","
+"
+"1","$knitr$knit_hooks
+"
+"1","NULL
+"
+"1","
+"
+"1","$knitr$opts_hooks
+"
+"1","NULL
+"
+"1","
+"
+"1","$knitr$opts_template
+"
+"1","NULL
+"
+"1","
+"
+"1","
+"
+"1","$pandoc
+"
+"1","$pandoc$to
+"
+"1","[1]"
+"1"," ""html"""
+"1","
+"
+"1","
+"
+"1","$pandoc$from
+"
+"1","[1]"
+"1"," ""markdown+autolink_bare_uris+tex_math_single_backslash"""
+"1","
+"
+"1","
+"
+"1","$pandoc$args
+"
+"1"," [1]"
+"1"," ""--embed-resources""                                                                     "
+"1","
+"
+"1"," [2]"
+"1"," ""--standalone""                                                                          "
+"1","
+"
+"1"," [3]"
+"1"," ""--variable""                                                                            "
+"1","
+"
+"1"," [4]"
+"1"," ""bs3=TRUE""                                                                              "
+"1","
+"
+"1"," [5]"
+"1"," ""--section-divs""                                                                        "
+"1","
+"
+"1"," [6]"
+"1"," ""--template""                                                                            "
+"1","
+"
+"1"," [7]"
+"1"," ""C:\\Users\\xun15\\AppData\\Local\\R\\win-library\\4.3\\rmarkdown\\rmd\\h\\default.html"""
+"1","
+"
+"1"," [8]"
+"1"," ""--no-highlight""                                                                        "
+"1","
+"
+"1"," [9]"
+"1"," ""--variable""                                                                            "
+"1","
+"
+"1","[10]"
+"1"," ""highlightjs=1""                                                                         "
+"1","
+"
+"1","
+"
+"1","$pandoc$keep_tex
+"
+"1","[1]"
+"1"," FALSE"
+"1","
+"
+"1","
+"
+"1","$pandoc$latex_engine
+"
+"1","[1]"
+"1"," ""pdflatex"""
+"1","
+"
+"1","
+"
+"1","$pandoc$ext
+"
+"1","NULL
+"
+"1","
+"
+"1","$pandoc$convert_fun
+"
+"1","NULL
+"
+"1","
+"
+"1","$pandoc$lua_filters
+"
+"1","[1]"
+"1"," ""C:\\Users\\xun15\\AppData\\Local\\R\\win-library\\4.3\\rmarkdown\\rmarkdown\\lua\\pagebreak.lua"""
+"1","
+"
+"1","[2]"
+"1"," ""C:\\Users\\xun15\\AppData\\Local\\R\\win-library\\4.3\\rmarkdown\\rmarkdown\\lua\\latex-div.lua"""
+"1","
+"
+"1","
+"
+"1","
+"
+"1","$keep_md
+"
+"1","[1]"
+"1"," FALSE"
+"1","
+"
+"1","
+"
+"1","$clean_supporting
+"
+"1","[1]"
+"1"," TRUE"
+"1","
+"
+"1","
+"
+"1","$df_print
+"
+"1","function (x, format, digits = getOption(""digits""), row.names = NA, 
+"
+"1","    col.names = NA, align, caption = NULL, label = NULL, format.args = list(), 
+"
+"1","    escape = TRUE, ...) 
+"
+"1","{
+"
+"1","    format = kable_format(format)
+"
+"1","    if (!missing(align) && length(align) == 1L && !grepl(""[^lcr]"", 
+"
+"1","        align)) 
+"
+"1","        align = strsplit(align, """")[[1]]
+"
+"1","    if (inherits(x, ""list"")) {
+"
+"1","        format = kable_format_latex(format)
+"
+"1","        res = lapply(x, kable, format = format, digits = digits, 
+"
+"1","            row.names = row.names, col.names = col.names, align = align, 
+"
+"1","            caption = NA, format.args = format.args, escape = escape, 
+"
+"1","            ...)
+"
+"1","        return(kables(res, format, caption, label))
+"
+"1","    }
+"
+"1","    caption = kable_caption(label, caption, format)
+"
+"1","    if (!is.matrix(x)) 
+"
+"1","        x = as.data.frame(x)
+"
+"1","    if (identical(col.names, NA)) 
+"
+"1","        col.names = colnames(x)
+"
+"1","    m = ncol(x)
+"
+"1","    isn = if (is.matrix(x)) 
+"
+"1","        rep(is.numeric(x), m)
+"
+"1","    else sapply(x, is.numeric)
+"
+"1","    if (missing(align) || (format == ""latex"" && is.null(align))) 
+"
+"1","        align = ifelse(isn, ""r"", ""l"")
+"
+"1","    digits = rep(digits, length.out = m)
+"
+"1","    for (j in seq_len(m)) {
+"
+"1","        if (is_numeric(x[, j])) 
+"
+"1","            x[, j] = round(x[, j], digits[j])
+"
+"1","    }
+"
+"1","    if (any(isn)) {
+"
+"1","        if (is.matrix(x)) {
+"
+"1","            if (is.table(x) && length(dim(x)) == 2) 
+"
+"1","                class(x) = ""matrix""
+"
+"1","            x = format_matrix(x, format.args)
+"
+"1","        }
+"
+"1","        else x[, isn] = format_args(x[, isn], format.args)
+"
+"1","    }
+"
+"1","    if (is.na(row.names)) 
+"
+"1","        row.names = has_rownames(x)
+"
+"1","    if (!is.null(align)) 
+"
+"1","        align = rep(align, length.out = m)
+"
+"1","    if (row.names) {
+"
+"1","        x = cbind(` ` = rownames(x), x)
+"
+"1","        if (!is.null(col.names)) 
+"
+"1","            col.names = tail(c("" "", col.names), ncol(x))
+"
+"1","        if (!is.null(align)) 
+"
+"1","            align = c(""l"", align)
+"
+"1","    }
+"
+"1","    n = nrow(x)
+"
+"1","    x = replace_na(to_character(x), is.na(x))
+"
+"1","    if (!is.matrix(x)) 
+"
+"1","        x = matrix(x, nrow = n)
+"
+"1","    x = trimws(x)
+"
+"1","    colnames(x) = col.names
+"
+"1","    if (format != ""latex"" && length(align) && !all(align %in% 
+"
+"1","        c(""l"", ""r"", ""c""))) 
+"
+"1","        stop(""'align' must be a character vector of possible values 'l', 'r', and 'c'"")
+"
+"1","    attr(x, ""align"") = align
+"
+"1","    if (format == ""simple"" && nrow(x) == 0) 
+"
+"1","        format = ""pipe""
+"
+"1","    res = do.call(paste(""kable"", format, sep = ""_""), list(x = x, 
+"
+"1","        caption = caption, escape = escape, ...))
+"
+"1","    structure(res, format = format, class = ""knitr_kable"")
+"
+"1","}
+"
+"1","<bytecode: 0x000002757a1c0ca8>
+"
+"1","<environment: namespace:knitr>
+"
+"1","
+"
+"1","$pre_knit
+"
+"1","function (...) 
+"
+"1","{
+"
+"1","    op(base(...), overlay(...))
+"
+"1","}
+"
+"1","<bytecode: 0x0000027578df5260>
+"
+"1","<environment: 0x0000027578df58b8>
+"
+"1","
+"
+"1","$post_knit
+"
+"1","function (...) 
+"
+"1","{
+"
+"1","    op(base(...), overlay(...))
+"
+"1","}
+"
+"1","<bytecode: 0x0000027578df5260>
+"
+"1","<environment: 0x0000027578df6098>
+"
+"1","
+"
+"1","$pre_processor
+"
+"1","function (...) 
+"
+"1","{
+"
+"1","    op(base(...), overlay(...))
+"
+"1","}
+"
+"1","<bytecode: 0x0000027578df5260>
+"
+"1","<environment: 0x0000027578dd89a0>
+"
+"1","
+"
+"1","$intermediates_generator
+"
+"1","function (original_input, intermediates_dir) 
+"
+"1","{
+"
+"1","    copy_render_intermediates(original_input, intermediates_dir, 
+"
+"1","        !self_contained)
+"
+"1","}
+"
+"1","<bytecode: 0x000002757a15e658>
+"
+"1","<environment: 0x000002757a15b650>
+"
+"1","
+"
+"1","$post_processor
+"
+"1","function (metadata, input_file, output_file, ...) 
+"
+"1","{
+"
+"1","    original_output_file <- output_file
+"
+"1","    output_file <- overlay(metadata, input_file, output_file, 
+"
+"1","        ...)
+"
+"1","    if (!is.null(attr(output_file, ""post_process_original""))) 
+"
+"1","        base(metadata, input_file, original_output_file, ...)
+"
+"1","    base(metadata, input_file, output_file, ...)
+"
+"1","}
+"
+"1","<bytecode: 0x0000027578de6fc0>
+"
+"1","<environment: 0x0000027578de7f10>
+"
+"1","
+"
+"1","$file_scope
+"
+"1","NULL
+"
+"1","
+"
+"1","$on_exit
+"
+"1","function () 
+"
+"1","{
+"
+"1","    if (is.function(base)) 
+"
+"1","        base()
+"
+"1","    if (is.function(overlay)) 
+"
+"1","        overlay()
+"
+"1","}
+"
+"1","<bytecode: 0x0000027578dd0500>
+"
+"1","<environment: 0x0000027578dd0a40>
+"
+"1","
+"
+"1","attr(,""class"")"
+"1","
+"
+"1","[1]"
+"1"," ""rmarkdown_output_format"""
+"1","
+"

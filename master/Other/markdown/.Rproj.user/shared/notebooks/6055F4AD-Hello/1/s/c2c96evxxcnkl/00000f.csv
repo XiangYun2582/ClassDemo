@@ -1,0 +1,3 @@
+"0","fit = lm(dist ~ speed, data = cars)"
+"0","b   = coef(fit)"
+"0","plot(cars)"

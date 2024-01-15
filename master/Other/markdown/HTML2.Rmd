@@ -1,0 +1,116 @@
+---
+title: "HTML2"
+author: "XiangYun"
+date: "2024-01-15"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    css: style.css
+    df_print: paged
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rmarkdown::html_document(df_print = knitr::kable)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+\par
+
+[中譯](https://cosname.github.io/rmarkdown-guide/rmarkdown-document.html) \space
+
+[ref](https://bookdown.org/yihui/rmarkdown-cookbook/)
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Quarterly Results {.tabset}
+
+### By Product
+
+(tab content)
+
+### By Region
+
+(tab content)
+
+## Quarterly Results {.tabset .tabset-fade .tabset-pills}
+### By Product
+
+(tab content)
+
+### By Region
+
+(tab content)
+
+## Next Steps {#nextsteps .emphasized}
+
+Bravo 
+
+### By Region {#original}
+
+(tab content)
+
+```{r}
+mtcars
+
+```
+
+
+```{r cols.print=3, rows.print=3}
+mtcars
+```
+
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mtcars[1:5, "mpg"]
+```
+## color
+
+```{r df-drop-ok, class.source="bg-success"}
+mtcars[1:5, "mpg", drop = FALSE]
+```
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mtcars[1:5, "mpg"]
+```
+
+## folder
+```{r}
+1  # 折叠的
+# code_folding: hide
+```
+
+```{r class.source = 'fold-show'}
+2  # 显示的
+```
+
+```{r}
+3  # 还是折叠的
+```
+
+## picture
+
+```r
+knitr::include_graphics("https://r-project.org/Rlogo.png")
+<img src="https://r-project.org/Rlogo.png" style="display: block; margin: auto;" />
+```
