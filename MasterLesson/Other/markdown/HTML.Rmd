@@ -1,0 +1,71 @@
+
+<!--  --- -->
+<!--  title: Habits -->
+<!--  author: John Doe -->
+<!--  date: March 22, 2005 -->
+<!--  output: html_document -->
+<!--  --- -->
+
+<!-- --- -->
+<!-- title: "Habits" -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     toc: true -->
+<!--     toc_depth: 2 -->
+<!-- --- -->
+<!-- above not pretty -->
+
+<!-- it's OK -->
+<!-- --- -->
+<!-- title: "Habits" -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     toc: true -->
+<!--     toc_float: -->
+<!--       collapsed: false -->
+<!--       smooth_scroll: false -->
+<!-- --- -->
+
+<!-- --- -->
+<!-- title: "Habits" -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     theme: darkly -->
+<!--     highlight: tango -->
+<!-- --- -->
+
+---
+title: "Habits"
+output:
+  html_document:
+    theme: null
+    highlight: null
+    css: styles.css
+---
+## Quarterly Results {.tabset}
+
+### By Product
+
+(tab content)
+
+### By Region
+
+(tab content)
+
+## Quarterly Results {.tabset .tabset-fade .tabset-pills}
+### By Product
+
+(tab content)
+
+### By Region
+
+(tab content)
+
+## Next Steps {#nextsteps .emphasized}
+#nextsteps {
+   color: blue;
+}
+
+.emphasized {
+   font-size: 1.2em;
+}
